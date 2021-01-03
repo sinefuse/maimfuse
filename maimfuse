@@ -14,11 +14,12 @@ nowday=$(date +%Y-%m-%d_%H-%M-%S)
 
 # These are variables for setting locations.
 # Base location
-loc=$HOME/Screenshets/$nowmon
+loc=$HOME/Screenshots/$nowmon
 # Area, Clipboard and Current window locations respectively
 arealoc=$loc"/"$processname"_"$nowday.png
 cliploc=$loc"/clip_"$nowday.png
 windloc=$loc"/"$processname"_"$nowday.png
+soundloc=/usr/local/bin/saved.ogg
 
 # This initializes the folder to save in, to make sure that the image can actually save.
 mkdir -p $loc
@@ -32,7 +33,7 @@ while getopts acw option; do
 			# Now we check whether the file exists.
 			if test -f "$arealoc"; then
 				# It exists, so here's a sound.
-				paplay saved.ogg
+				paplay $soundloc
 			else
 				# Doesn't exist, let's assume the screenshot was cancelled.
 				echo "Screenshot cancelled. Not playing sound."
@@ -45,7 +46,7 @@ while getopts acw option; do
 			#However, we do also still need to check whether the file exists.
 			if test -f "$cliploc"; then
 				# It exists, so here's a sound.
-				paplay saved.ogg
+				paplay $soundloc
 			else
 				# Doesn't exist, let's assume the screenshot was cancelled.
 				echo "File doesn't exist, something went wrong. Not playing the sound anyways."
@@ -57,7 +58,7 @@ while getopts acw option; do
 			# Now we check whether the file exists.
 			if test -f "$windloc"; then
 				# It exists, so here's a sound.
-				paplay saved.ogg
+				paplay $soundloc
 			else
 				# Doesn't exist, let's assume the screenshot was cancelled.
 				echo "File doesn't exist, something went wrong. Not playing the sound anyways."
@@ -80,7 +81,7 @@ if (( $OPTIND == 1 )); then
 	# Now we check whether the file exists.
 	if test -f "$arealoc"; then
 		# It exists, so here's a sound.
-		paplay saved.ogg
+		paplay $soundloc
 	else
 		# Doesn't exist, let's assume the screenshot was cancelled.
 		echo "Screenshot cancelled. Not playing sound."
