@@ -19,7 +19,7 @@ loc=$HOME/Screenshots/$nowmon
 arealoc=$loc"/"$processname"_"$nowday.png
 cliploc=$loc"/clip_"$nowday.png
 windloc=$loc"/"$processname"_"$nowday.png
-soundloc=/usr/local/bin/saved.ogg
+soundloc=$HOME/maimfuse/saved.ogg
 
 # This initializes the folder to save in, to make sure that the image can actually save.
 mkdir -p $loc
